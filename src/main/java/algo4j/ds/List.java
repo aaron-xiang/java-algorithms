@@ -5,7 +5,7 @@ package algo4j.ds;
  */
 public interface List<E> {
     void add(E item);
-    E get(int i);
+    E get(int i) throws IndexOutOfBoundsException;
     int size();
     E remove(int i);
 }
