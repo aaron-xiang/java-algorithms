@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 /**
  * Created by aaron on 7/5/18.
  */
-public class MergeSortTest {
+public class SortTest {
     private Sorter sorter;
 
     @Test
@@ -20,6 +20,15 @@ public class MergeSortTest {
         sorter.sort(data);
         assertTrue(ArrayUtil.isSorted((data)));
 
+    }
+
+    @Test
+    public void testQuickSort() {
+        Comparable[] data = generateTestData(200);
+        assertFalse(ArrayUtil.isSorted(data));
+        sorter = new QuickSort();
+        sorter.sort(data);
+        assertTrue(ArrayUtil.isSorted((data)));
     }
 
     private Comparable[] generateTestData(int n) {

@@ -15,32 +15,47 @@ public class MergeSort implements Sorter {
     }
 
     private void sort(Comparable[] data, int start, int end) {
-        if (end <= start || end >= data.length) {
-            return;
-        }
-        int mid = (start+end)/2;
+        if (start >= end) return;
+        int mid = (start + end)/2;
         sort(data, start, mid);
         sort(data, mid + 1, end);
         merge(data, start, mid, end);
     }
 
     private void merge(Comparable[] data, int start, int mid, int end) {
-        ArrayUtil.copy(data, temp, start, end);
+        for (int k = start; k <= end; k++) {
+            temp[k] = data[k];
+        }
         int i = start;
         int j = mid + 1;
-        for (int k = start; k <= end; k++) {
+        int k = start;
+        while (i <= mid || j <= end) {
             if (i > mid) {
-                data[k] = temp[j++];
+                data[k++] = temp[j++];
             }
             else if (j > end) {
-                data[k] = temp[i++];
+                data[k++] = temp[i++];
             }
-            else if (temp[i].compareTo(temp[j]) > 0) {
-                data[k] = temp[j++];
+            else if (temp[j].compareTo(temp[i]) <= 0) {
+                data[k++] = temp[j++];
             }
             else {
-                data[k] = temp[i++];
+                data[k++] = temp[i++];
             }
         }
+//        for (int k = start; k <= end ; k++) {
+//            if (i > mid) {
+//                data[k] = temp[j++];
+//            }
+//            else if (j > end) {
+//                data[k] = temp[i++];
+//            }
+//            else if (temp[j].compareTo(temp[i]) <= 0) {
+//                data[k] = temp[j++];
+//            }
+//            else {
+//                data[k] = temp[i++];
+//            }
+//        }
     }
 }
