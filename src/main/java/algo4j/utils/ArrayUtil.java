@@ -2,9 +2,6 @@ package algo4j.utils;
 
 import java.util.Random;
 
-/**
- * Created by aaron on 7/5/18.
- */
 public class ArrayUtil {
     public static void shuffle(Comparable[] data) {
         Random random = new Random();
@@ -36,5 +33,17 @@ public class ArrayUtil {
         for (int i = start; i <= end; i++) {
             target[i] = source[i];
         }
+    }
+
+    public static int findMinIndex(Comparable[] data, int start, int end) {
+        Comparable min = data[start];
+        int minIndex = start;
+        for (int i = start; i <= end; i++) {
+            if (data[i].compareTo(min) < 0) {
+                min = data[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
 }

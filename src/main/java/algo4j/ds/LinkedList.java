@@ -6,7 +6,7 @@ package algo4j.ds;
 public class LinkedList<E> implements List<E> {
     private LinkedListNode<E> head;
     private LinkedListNode<E> tail;
-    int n;
+    private int n;
 
     public void add(E item) {
         LinkedListNode<E> node = new LinkedListNode<E>(item);
