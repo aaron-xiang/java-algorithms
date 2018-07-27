@@ -27,4 +27,10 @@ public class StringUtilTest {
         String expected = "sey";
         assertEquals(expected, StringUtil.reverse(testString));
     }
+
+    @Test
+    public void testIsPalindromePermutation() {
+        String testString = "ababccc";
+        assertTrue(StringUtil.isPalindromePermutation(testString));
+    }
 }

@@ -1,5 +1,8 @@
 package algo4j.ds;
 
+import java.util.*;
+import java.util.ArrayList;
+
 /**
  * Created by aaron on 6/14/18.
  */
@@ -8,6 +11,9 @@ public class LinkedList<E> implements List<E> {
     private LinkedListNode<E> tail;
     private int n;
 
+    public void prepend(E item) {
+
+    }
     public void add(E item) {
         LinkedListNode<E> node = new LinkedListNode<E>(item);
         if (head == null) {
@@ -79,4 +85,21 @@ public class LinkedList<E> implements List<E> {
         }
         return current;
     }
+
+
+    public LinkedList<E> reverse() {
+        java.util.List<E> items = new ArrayList<E>();
+        LinkedList<E> reversed = new LinkedList<E>();
+
+        while(head.getNext() != null) {
+            items.add(head.getValue());
+            head=head.getNext();
+        }
+        for (int i = items.size() - 1; i >= 0; i--) {
+            reversed.add(items.get(i));
+        }
+        return reversed;
+    }
+
+
 }

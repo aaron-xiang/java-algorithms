@@ -29,4 +29,32 @@ public class StringUtil {
             return false;
         }
     }
+
+    public static boolean isPalindromePermutation(String a) {
+        int[] count = new int[26];
+        char[] chars = a.toLowerCase().toCharArray();
+        int oddCount = 0;
+
+        for (char c : chars) {
+            if (c >= 'a' && c <= 'z') {
+                count[c - 'a']++;
+            }
+            /*
+                if (c >= 'A' && c <= 'Z') {
+                count[c - 'Z']++;
+            }
+
+             */
+        }
+        for (int i = 0; i < count.length; i++) {
+            if (count[i] % 2 != 0) {
+                oddCount++;
+            }
+        }
+        if (oddCount <= 1) {
+            return true;
+        }
+        return false;
+
+    }
 }
